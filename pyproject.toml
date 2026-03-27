@@ -13,6 +13,21 @@ dependencies = [
     "numpy",
     "jaxtyping",
     "rich",
+    # lib for simple_trainer.py
+    "imageio>=2.37.3",
+    "tqdm>=4.67.3",
+    "tyro>=1.0.11",
+    "viser>=1.0.24",
+    "pyyaml>=6.0.3",
+    "torchmetrics[image]>=1.9.0",
+    "fused-ssim",
+    "nerfview>=0.1.3",
+    "tensorboard>=2.20.0",
+    "opencv-contrib-python-headless>=4.13.0.92",
+    "pycolmap",
+    "scikit-learn>=1.7.2",
+    "matplotlib>=3.10.8",
+    "splines>=0.3.3",
 ]
 
 [[tool.uv.index]]
@@ -28,3 +43,6 @@ explicit = true
 [tool.uv.sources]
 torch = { index = "pytorch-cu124" }
 gsplat = { index = "gsplat-whl" }
+fused-ssim = { git = "https://github.com/rahul-goel/fused-ssim" }
+# pycolmap was using numpyv1 and suffered from BR.
+pycolmap = { git = "https://github.com/brandonyzhao/pycolmap", branch = "fix-invalidpt3d" }
