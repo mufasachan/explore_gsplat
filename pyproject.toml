@@ -13,8 +13,6 @@ dependencies = [
     "numpy",
     "jaxtyping",
     "rich",
-    # lib for simple_trainer.py
-    "imageio>=2.37.3",
     "tqdm>=4.67.3",
     "tyro>=1.0.11",
     "viser>=1.0.24",
@@ -28,6 +26,8 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "matplotlib>=3.10.8",
     "splines>=0.3.3",
+    "setuptools==81.0",
+    "imageio[ffmpeg]>=2.37.3",
 ]
 
 [[tool.uv.index]]
@@ -46,3 +46,9 @@ gsplat = { index = "gsplat-whl" }
 fused-ssim = { git = "https://github.com/rahul-goel/fused-ssim" }
 # pycolmap was using numpyv1 and suffered from BR.
 pycolmap = { git = "https://github.com/brandonyzhao/pycolmap", branch = "fix-invalidpt3d" }
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "ipython>=8.39.0",
+]

@@ -30,14 +30,16 @@
       devShells.${system}.default = pkgs.mkShell {
         packages = [
           pkgs.uv
-          pkgs.python310
+          (pkgs.python310.withPackages (ps: [ ps.debugpy ]))
           pkgs.nixgl.auto.nixGLDefault
           cudaPkgs.cudatoolkit
+          pkgs.ffmpeg_7-headless
         ];
         shellHook = ''
           export LD_LIBRARY_PATH="${libs}''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
           export CUDA_PATH=${pkgs.cudatoolkit}
           alias uv='nixGL uv'
+          alias python='uv run python'
           uv sync
         '';
       };
